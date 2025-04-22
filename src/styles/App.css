@@ -1,0 +1,32 @@
+/* src/styles/App.css */
+/* — Iteration 2: color-mix(), fade‑in, container queries */  
+
+:root {
+	/* Muted derived from text+bg for better contrast */
+	--color-muted: color-mix(in sRGB, var(--color-text) 60%, var(--color-bg));
+  
+	/* Fade‑in keyframes */
+	--anim-duration: 0.6s var(--ease);
+  }
+  
+  @keyframes fadeIn {
+	from { opacity: 0; transform: translateY(1rem); }
+	to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Apply entry animation to each section */
+  .section {
+	animation: fadeIn var(--anim-duration) both;
+	will-change: opacity, transform;
+  }
+  
+  /* Container query on projects */
+  .projects-section {
+	container-type: inline-size;
+  }
+  @container (min-width: 720px) {
+	.projects-grid {
+	  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	}
+  }
+  
