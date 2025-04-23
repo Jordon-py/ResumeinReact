@@ -3,10 +3,10 @@ import '../styles/components.css';
 
 const projects = [
   {
-    title: 'Resume Website',
+    title: 'First website after graduation "Jade\'s Brow Beauty"',
     description:
       'Responsive Vite‑React application showcasing a professional resume with custom CSS and accessibility best practices.',
-    link: 'https://github.com/Jordon-py/resume-app',
+    link: 'https://jades-brow-beauty-e0eaac26db9f.herokuapp.com/',
   },
   {
     title: 'CodeArk',

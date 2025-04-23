@@ -37,13 +37,14 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  maxwidth: 100vw; /* Prevent exceeding viewport */
   overflow-x: hidden; /* Ensure body also hides overflow */
   box-sizing: border-box; /* Add box-sizing */
 }
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 button {
@@ -69,11 +70,13 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #ffffff;
+    color-scheme: light;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+    color-scheme: dark;
   }
 }

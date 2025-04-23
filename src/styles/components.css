@@ -22,8 +22,8 @@
 }
 
 main {
-  margin-top: 0; /* Explicitly remove top margin */
-  padding: var(--gap) var(--gap); /* Apply vertical padding here */
+  margin-top: 0 auto; /* Explicitly remove top margin */
+  padding: var(--gap); /* Apply vertical padding here */
   font-family: 'Inter', sans-serif;
   font-size: clamp(1rem, 2vw, 1.125rem);
   line-height: 1.6;
@@ -34,6 +34,7 @@ main {
   box-sizing: border-box; /* Include padding in width calculation */
   min-height: 100%; /* Ensure it fills height if content is short */
   overflow-x: hidden; /* Hide horizontal overflow within main */
+  overflow-y: auto; /* Allow vertical scrolling if needed */
 }
 
 /* === Section Layout === */
