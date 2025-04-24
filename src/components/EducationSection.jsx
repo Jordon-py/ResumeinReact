@@ -6,9 +6,20 @@ const education = [
     degree: 'Full Stack Software Engineering Certificate',
     institution: 'General Assembly',
     dates: 'Nov 2024 – Mar 2025',
+    image: 'Certificate-of-Completion.jpg',
     details: [
       '420 hours of immersive, hands-on coding instruction.',
       'Built REST API projects, responsive UIs, and version-control workflows.',
+    ],
+  },
+  {
+    degree: 'Python Basics – Coursera',
+    institution: 'Coursera',
+    dates: 'January – July 2024',
+    image: 'Coursera.jpg',
+    details: [
+      'Learned the fundamentals of Python programming.',
+      'Completed hands-on projects and quizzes.',
     ],
   },
   {
@@ -32,7 +43,21 @@ const EducationSection = () => (
         <header>
           <h3 className="education-degree">{ed.degree}</h3>
           <p className="education-institution">{ed.institution}</p>
-          <time className="education-dates">{ed.dates}</time>
+          <time className="education-dates">{ ed.dates }</time>
+          {ed.image && (
+            <a
+              href={ed.image}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="image-link"
+            >
+              <img
+                src={ed.image}
+                alt={`${ed.degree} from ${ed.institution}`}
+                className="image"
+              />
+            </a>
+          )}
         </header>
         {ed.details && (
           <ul className="education-details" role="list">

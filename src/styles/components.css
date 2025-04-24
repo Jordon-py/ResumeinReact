@@ -7,12 +7,12 @@
   box-sizing: border-box;
   margin-top: 0;
   padding: 0;
-  --color-bg: lch(9% 1 1);
-  --color-text: lch(40.91% 2.51 19.59);
-  --color-accent: lch(65% 80 320);
+  --color-bg: lch(0% 0 0 / 0.755);
+  --color-text: lch(100% 0.01 296.81);
+  --color-accent: lch(65.37% 59.99 26.46);
   --color-primary: lch(60% 70 260);
   --color-muted: color-mix(in srgb, var(--color-text) 60%, var(--color-bg));
-  --shadow-default: 0 12px 16px lch(81.29% 27.65 21.69 / 0.08);
+  --shadow-default: 0 12px 16px lch(100% 0.01 296.81 / 0.424);
   --shadow-hover: 0px 10px 16px -16px lch(81.29% 27.65 21.69 / 0.12);
   --radius: 0.75rem;
   --transition: 0.22s cubic-bezier(.4,0,.2,1);
@@ -35,6 +35,18 @@ main {
   min-height: 100%; /* Ensure it fills height if content is short */
   overflow-x: hidden; /* Hide horizontal overflow within main */
   overflow-y: auto; /* Allow vertical scrolling if needed */
+}
+
+/* === Global Styles === */
+.image {
+  display: flex; /* Changed from flex for simpler image handling */
+  width: 100%; /* Make width responsive */
+  max-width: 450px; /* Limit max width for education context */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: calc(var(--radius) * 0.5); /* Slightly smaller radius */
+  box-shadow: var(--shadow-default);
+  transition: box-shadow var(--transition);
+  object-fit:fill; /* Ensure image fits within bounds */
 }
 
 /* === Section Layout === */
@@ -76,7 +88,7 @@ main {
   border-inline-start: 4px solid var(--color-muted);
   margin-block-end: var(--gap);
   padding-inline-start: 1.25rem;
-  background: lch(98% 0 0 / 60%);
+  background: lch(97.93% 0.01 296.81 / 0.145);
   border-radius: 0.5rem;
   transition: box-shadow var(--transition), border-color var(--transition);
   box-shadow: none;
@@ -153,7 +165,7 @@ main {
   }
 }
 .project-item {
-  background: lch(98% 0 0 / 90%);
+  background: lch(97.93% 0.01 296.81 / 0.258);
   border-radius: var(--radius);
   box-shadow: var(--shadow-default);
   padding: 1.25rem 1rem;
@@ -195,7 +207,7 @@ main {
   border-inline-start: 4px solid var(--color-muted);
   margin-block-end: var(--gap);
   padding-inline-start: 1.25rem;
-  background: lch(98% 0 0 / 60%);
+  background: lch(97.93% 0.01 296.81 / 0.199);
   border-radius: 0.5rem;
   transition: border-color var(--transition);
   display: flex;
@@ -204,6 +216,15 @@ main {
 }
 .education-item:hover {
   border-inline-start-color: color-mix(in srgb, var(--color-primary) 80%, var(--color-accent));
+}
+.education-item header { /* Target header specifically if needed */
+  display: flex;
+  flex-direction: column;
+}
+.education-item .image-link { /* Style the link container if needed */
+  display: flex;
+  margin-inline: 0; /* Center link block */
+  width: fit-content; /* Fit to image size */
 }
 .education-degree {
   font-weight: 600;
