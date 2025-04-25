@@ -30,7 +30,7 @@ const ContactSection = () => (
         </a>{' '}
         |{' '}
         <a
-          href="https://linkedin.com/in/yourprofile"
+          href="www.linkedin.com/in/christopher-jordon-a369092b3"
           target="_blank"
           rel="noopener noreferrer"
         >
