@@ -9,6 +9,7 @@ const AboutSection = () => (
     className="section about-section"
     aria-labelledby="about-title"
   >
+    <h1 className="name">Christopher Jordon</h1>
     <h2 id="about-title" className="section-title">
       About
     </h2>

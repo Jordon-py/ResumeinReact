@@ -21,6 +21,21 @@
   --gap: clamp(1rem, 3vw, 2rem);
 }
 
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 4rem;
+  color:lch(89.18% 0.01 296.81);
+  font-family: "Bodoni Moda SC", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
 main {
   margin-top: 0 auto; /* Explicitly remove top margin */
   padding: var(--gap); /* Apply vertical padding here */

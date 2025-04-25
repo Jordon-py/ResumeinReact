@@ -11,7 +11,8 @@ const ContactSection   = React.lazy(() => import('./components/ContactSection'))
 function App() {
   return (
     <main>
-      <Suspense fallback={<div>Loading…</div>}>
+      <Suspense fallback={ <div>Loading…</div> }>
+        
         <AboutSection />
         <ExperienceSection />
         <SkillsSection />
