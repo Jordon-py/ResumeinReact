@@ -30,3 +30,14 @@
 	}
   }
   
+/* Enhancement 4: Respect reduced motion preferences
+   Purpose: Disable or minimize motion for users with reduced motion settings.
+   Impact: Accessibility improvement; avoids disorientation.
+   Future: Could fade only opacity if further motion exists. */
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+  
