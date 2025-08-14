@@ -17,7 +17,7 @@ const ContactSection = () => (
         </a>
       </p>
       <p>
-        <a href="tel:+17026955288">(702) 695‑5288</a>
+        <a href="tel:+17026955288">(702) 695-5288</a>
       </p>
       <p>Las Vegas, NV</p>
       <p>

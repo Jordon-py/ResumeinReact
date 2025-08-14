@@ -306,3 +306,176 @@ main {
   from { opacity: 0; transform: translateY(1rem);}
   to   { opacity: 1; transform: translateY(0);}
 }
+
+/* ==========================================================
+   Visual Enhancements — 2025-08-13 (Appended overrides only)
+   Notes:
+   - All colors use LCH. No frameworks, no inline styles.
+   - Later rules override earlier definitions to remain minimal.
+   ========================================================== */
+
+/* Enhancement 1: Heading typography polish
+   Purpose: Establish a modern, consistent hierarchy for section titles and the main name.
+   Expected visual impact: Clearer scan lines, improved emphasis, and elegant display feel.
+   Future: Consider font-variation settings if a variable font is introduced later. */
+:root {
+  /* Ensure muted uses LCH mixing for compliance */
+  --color-muted: color-mix(in lch, var(--color-text) 60%, var(--color-bg));
+  --color-link: lch(70% 55 270);
+  --color-link-hover: lch(75% 60 270);
+  --color-border: lch(30% 5 270 / 0.25);
+  --focus-ring: lch(85% 50 260 / 0.6);
+}
+
+.section-title {
+  margin: 0 0 0.75rem 0;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  line-height: 1.25;
+  color: var(--color-text);
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 3.5rem;
+  height: 0.18rem;
+  margin-top: 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-primary), lch(72% 40 250));
+}
+
+.name {
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/* Enhancement 2: Body readability (measure + rhythm)
+   Purpose: Improve long-text readability with a comfortable measure and rhythm.
+   Impact: Easier reading, less eye strain across devices.
+   Future: Consider CSS :where(p) prose utilities if scale grows. */
+main {
+  font-size: clamp(1.0625rem, 2.2vw, 1.1875rem);
+  line-height: 1.7;
+}
+.about-text, .experience-details, .education-details {
+  max-width: 68ch;
+}
+
+/* Enhancement 3: Section container refinement
+   Purpose: Create subtle separation and depth without heavy borders.
+   Impact: Sections feel structured and breathable.
+   Future: Could toggle based on theme in the future. */
+.section {
+  background: color-mix(in lch, var(--color-bg) 96%, var(--color-text));
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Enhancement 5: Project cards modernization
+   Purpose: Give projects a clear card identity with motion affordance.
+   Impact: Projects feel tappable/clickable with subtle elevation.
+   Future: Add thumbnail support later. */
+.projects-grid {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.project-item {
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: color-mix(in lch, var(--color-bg) 90%, var(--color-text));
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-default);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+.project-item:hover,
+.project-item:focus-within {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 24px lch(0% 0 0 / 0.25);
+}
+.project-title a {
+  color: var(--color-text);
+  text-decoration: none;
+  outline: none;
+}
+.project-title a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Enhancement 6: Skill badges
+   Purpose: Make skills scannable as pill badges with good contrast.
+   Impact: Better visual grouping, improved touch targets.
+   Future: Could add category color-coding later. */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  padding: 0;
+  margin: 0;
+}
+.skill-item {
+  list-style: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: color-mix(in lch, var(--color-primary) 12%, var(--color-bg));
+  color: var(--color-text);
+  border: 1px solid color-mix(in lch, var(--color-primary) 30%, var(--color-bg));
+  box-shadow: 0 1px 0 lch(0% 0 0 / 0.15) inset;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.skill-item:hover,
+.skill-item:focus-visible {
+  background: color-mix(in lch, var(--color-primary) 20%, var(--color-bg));
+  transform: translateY(-1px);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* Enhancement 7: Experience timeline accent
+   Purpose: Provide a vertical rhythm cue for each experience item.
+   Impact: Easier parsing of entries; subtle depth on hover.
+   Future: Could convert to CSS anchor positioning if needed. */
+.experience-item {
+  padding: 1rem 1rem 1rem 1.25rem;
+  border-left: 3px solid color-mix(in lch, var(--color-primary) 70%, var(--color-bg));
+  margin-block: 1rem;
+  border-radius: calc(var(--radius) * 0.5);
+  background: color-mix(in lch, var(--color-bg) 94%, var(--color-text));
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.experience-item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.experience-role { font-weight: 600; }
+.experience-company { color: var(--color-muted); }
+.experience-dates { color: var(--color-muted); font-size: 0.95em; }
+
+/* Enhancement 8: Image hover refinement
+   Purpose: Harmonize image elevation and reduce harsh edges.
+   Impact: Softer, modern visuals for certificate previews.
+   Future: Add loading=lazy in markup when image list grows. */
+.image {
+  border-radius: calc(var(--radius) * 0.75);
+}
+.image:hover {
+  box-shadow: 0 16px 24px lch(0% 0 0 / 0.25);
+}
+
+/* Enhancement 9: Focus ring + link states in LCH
+   Purpose: Improve keyboard/a11y affordances and link clarity.
+   Impact: Clear, WCAG-compliant focus visuals and link hovers.
+   Future: Could add :has() based parent highlighting later. */
+a { color: var(--color-link); text-decoration: underline; text-underline-offset: 0.15em; }
+a:hover { color: var(--color-link-hover); }
+a:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; border-radius: 4px; }
+
+/* Enhancement 10: Projects base grid + responsive gaps
+   Purpose: Provide a solid base layout before container queries refine columns.
+   Impact: Consistent spacing across breakpoints.
+   Future: Expand with masonry if thumbnails are added. */
+.projects-section { scroll-margin-top: 1rem; }
+
+/* End of appended enhancements */
